@@ -1,6 +1,11 @@
 import mongoose from 'mongoose';
 
-const productSchema = new mongoose.Schema({
+import { isTitle, isPrice } from '@/utils/validators';
+import dbConnect from '@/utils/dbConnect';
+
+dbConnect();
+
+const Product = mongoose.models.Product || mongoose.model('Product', new mongoose.Schema({
   img: {
     type: String,
     required: true,
@@ -11,11 +16,28 @@ const productSchema = new mongoose.Schema({
     unique: true,
     trim: true,
     maxLength: 64,
+    minlength: 3
   },
   price: {
     type: Number,
     required: true,
   },
-});
+}));
 
-export default mongoose.models.Product || mongoose.model('Product', productSchema);
+function getProducts() {
+  return Product.find({});
+}
+
+function getProduct(searchQuery) {
+  return Product.findOne(searchQuery);
+}
+
+async function createProduct(img, title, price) {
+  if (typeof img !== 'string' || !isTitle(title) || !isPrice(price)) return;
+  if (await getProduct({ title })) return;
+
+  return Product.create({ img, title, price });
+}
+
+export default Product;
+export { getProducts, getProduct, createProduct };
