@@ -1,5 +1,5 @@
 function Product({ product }) {
-  const { img, title, price } = product;
+  const { title, price } = product;
 
   return (
     <div>

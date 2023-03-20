@@ -1,0 +1,30 @@
+.header {
+  position: fixed;
+  width: 100vw;
+  min-height: 64px;
+  background-color: white;
+  padding: 0 10vw 0 10vw;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 9;
+  box-shadow: 0px 1px 1px #f4f4f4;
+}
+
+.name {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #3563e9;
+}
+
+.navList {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navLink {
+  text-decoration: none;
+  color: black;
+  font-size: 1.1rem;
+}

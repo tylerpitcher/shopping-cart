@@ -1,0 +1,52 @@
+.list {
+  padding: 6rem 0 5rem 0;
+}
+
+.sectionHeader {
+  margin-bottom: -2rem;
+}
+
+.item {
+  padding-top: 5rem;
+}
+
+.infoWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.description {
+  max-width: 50%;
+  text-align: justify;
+}
+
+.model {
+  width: 500px;
+  height: 350px;
+  border-radius: 1.5vw;
+  background-color: white;
+}
+
+.priceWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5rem;
+}
+
+.price {
+  display: block;
+  font-weight: 700;
+}
+
+.buyLink {
+  display: block;
+  text-decoration: none;
+  color: black;
+  padding: 0.5rem 2rem 0.5rem 2rem;
+  background-color: #3563e9;
+  color: white;
+  border-radius: 2rem;
+}

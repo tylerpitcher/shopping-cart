@@ -1,15 +1,15 @@
-import Product from '@/components/Product';
+import ProductList from '@/components/product/ProductList';
+import Header from '@/components/Header';
+import Hero from '@/components/Hero';
 
 function Home({ products }) {
   return (
     <div>
-      <ul style={{ listStyle: 'none', padding: 0 }}>
-        {products.map((product) => (
-          <li key={product.title}>
-            <Product product={product}/>
-          </li>
-        ))}
-      </ul>
+      <Header/>
+      <main>
+        <Hero/>
+        <ProductList products={products}/>
+      </main>
     </div>
   );
 }

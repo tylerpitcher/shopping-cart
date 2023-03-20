@@ -1,7 +1,7 @@
 import { getProducts, getProduct } from '@/models/productModel';
 import safeSerialize from '@/utils/safeSerialize';
 import { isObjectId } from '@/utils/validators';
-import Product from '@/components/Product';
+import Product from '@/components/product/Product';
 
 export async function getStaticPaths() {
   const products = await getProducts();
