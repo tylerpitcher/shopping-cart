@@ -1,13 +1,20 @@
+import { motion } from 'framer-motion';
+
 import ProductListItem from '@/components/product/ProductListItem';
 import styles from '@/styles/ProductList.module.css';
+import MotionSection from '@/components/MotionSection';
+import { textVariant } from '@/utils/motion';
 
 function ProductList({ products }) {
   return (
-    <section id='products' className={styles.list}>
-      <div className={styles.sectionHeader}>
+    <MotionSection id='products' className={styles.list}>
+      <motion.div 
+        variants={textVariant()}
+        className={styles.sectionHeader}
+      >
         <p>The best of the very best</p>
         <h2>Our Products.</h2>
-      </div>
+      </motion.div>
       <ul className='simpleList'>
         {products.map((product) => (
           <ProductListItem 
@@ -16,7 +23,7 @@ function ProductList({ products }) {
           />
         ))}
       </ul>
-    </section>
+    </MotionSection>
   );
 }
 
