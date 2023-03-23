@@ -1,12 +1,23 @@
+import { motion } from 'framer-motion';
+
 import styles from '@/styles/ProductList.module.css';
+import { slideIn } from '@/utils/motion';
 
 function ProductListItem({ product }) {
   return (
-    <li className={styles.item}>
-      <h3>{product.title}</h3>
+    <motion.li
+      initial='hidden'
+      whileInView='show'
+      viewport={{ once: true, amount: 0.25 }}
+      className={styles.item}
+    >
+      <motion.h3 variants={slideIn('left', 'tween', 0.2, 1)}>{product.title}</motion.h3>
 
       <div className={styles.infoWrapper}>
-        <div className={styles.description}>
+        <motion.div 
+          variants={slideIn('left', 'tween', 0.2, 1)}
+          className={styles.description}
+        >
           <p>
             {product.shortDescription}
           </p>
@@ -14,13 +25,16 @@ function ProductListItem({ product }) {
             <span className={styles.price}>{product.price.toPriceString()}</span>
             <a className={styles.buyLink} href={`/${product._id}`}>BUY</a>
           </div>
-        </div>
+        </motion.div>
 
-        <div className={styles.model}>
+        <motion.div 
+          variants={slideIn('right', 'tween', 0.2, 1)}
+          className={styles.model}
+        >
 
-        </div>
+        </motion.div>
       </div>
-    </li>
+    </motion.li>
   );
 }
 

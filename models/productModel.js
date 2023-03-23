@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-import { isTitle, isDisc, isPrice } from '@/utils/validators';
+import { isTitle, isDesc, isPrice } from '@/utils/validators';
 import dbConnect from '@/utils/dbConnect';
 
 dbConnect();
@@ -41,7 +41,7 @@ function getProduct(searchQuery) {
 }
 
 async function createProduct(title, fileLocation, shortDesc, longDesc, price) {
-  if (typeof img !== 'string' || !isTitle(title) || !isPrice(price) || !isDisc(shortDesc) || !isDisc(longDesc)) return;
+  if (typeof img !== 'string' || !isTitle(title) || !isPrice(price) || !isDesc(shortDesc) || !isDesc(longDesc)) return;
   if (await getProduct({ title })) return;
 
   return Product.create({ 

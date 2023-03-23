@@ -10,8 +10,8 @@ function Hero() {
             <div className={styles.trail}/>
           </div>
           <div>
-            <h1>Welcome,</h1>
-            <p className={styles.text}>you'll love our replica models</p>
+            <h1>Welcome&#44;</h1>
+            <p className={styles.text}>you&apos;ll love our replica models</p>
           </div>
         </div>
       </div>
