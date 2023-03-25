@@ -1,3 +1,4 @@
+import ModelCanvas from '@/components/ModelCanvas';
 import styles from '@/styles/Hero.module.css';
 
 function Hero() {
@@ -13,6 +14,7 @@ function Hero() {
             <h1>Welcome&#44;</h1>
             <p className={styles.text}>you&apos;ll love our replica models</p>
           </div>
+          <ModelCanvas/>
         </div>
       </div>
     </section>

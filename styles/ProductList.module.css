@@ -1,5 +1,6 @@
 .list {
-  padding: 6rem 0 5rem 0;
+  padding: 6rem 10vw 5rem 10vw;
+  overflow: hidden;
 }
 
 .sectionHeader {

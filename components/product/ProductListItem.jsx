@@ -11,11 +11,11 @@ function ProductListItem({ product }) {
       viewport={{ once: true, amount: 0.25 }}
       className={styles.item}
     >
-      <motion.h3 variants={slideIn('left', 'tween', 0.2, 1)}>{product.title}</motion.h3>
+      <motion.h3 variants={slideIn('left', 'tween', 0.2, 1.5)}>{product.title}</motion.h3>
 
       <div className={styles.infoWrapper}>
         <motion.div 
-          variants={slideIn('left', 'tween', 0.2, 1)}
+          variants={slideIn('left', 'tween', 0.2, 1.5)}
           className={styles.description}
         >
           <p>
@@ -28,7 +28,7 @@ function ProductListItem({ product }) {
         </motion.div>
 
         <motion.div 
-          variants={slideIn('right', 'tween', 0.2, 1)}
+          variants={slideIn('right', 'tween', 0.2, 1.5)}
           className={styles.model}
         >
 
