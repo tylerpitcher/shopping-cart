@@ -1,4 +1,4 @@
-import { OrbitControls, Preload, Html, useProgress, useGLTF } from '@react-three/drei';
+import { OrbitControls, Preload, Html, Center, useProgress, useGLTF } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
 import { Suspense } from 'react';
 
@@ -12,8 +12,8 @@ function LoaderText() {
   );
 }
 
-function Model() {
-  const model = useGLTF('/tank/scene.gltf');
+function Model({ modelDetails }) {
+  const model = useGLTF(modelDetails.file);
 
   return (
     <mesh>
@@ -25,8 +25,8 @@ function Model() {
       />
       <ambientLight intensity={1}/>
       <primitive
-        object={model.scene}
-        scale={1}
+        object={model.scene.clone()}
+        scale={modelDetails.scale}
         position-y={0}
         rotation-y={0}
       />
@@ -34,15 +34,17 @@ function Model() {
   );
 }
 
-function ModelCanvas({ details }) {
+function ModelCanvas({ modelDetails }) {
   return (
     <Canvas
       frameloop='demand'
       gl={{ preserveDrawingBuffer: true }}
-      camera={{ fov: 45, near: 0.1, far: 1000, position: [500, 100, 0] }}
+      camera={{ fov: 45, near: 0.1, far: 1000 }}
     >
       <Suspense fallback={<LoaderText/>}>
-        <Model/>
+        <Center>
+          <Model modelDetails={modelDetails}/>
+        </Center>
         <OrbitControls
           autoRotate
           enableZoom={false}

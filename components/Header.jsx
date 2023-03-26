@@ -9,7 +9,7 @@ function Header() {
 
   return (
     <header className={styles.header}>
-      <span className={styles.name}>Replicar</span>
+      <span className={styles.name}>RepliCar</span>
       <nav>
         <ul className={`${styles.navList} simpleList`}>
           {links.map((link) => (
