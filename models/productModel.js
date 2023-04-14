@@ -14,8 +14,8 @@ const Product = mongoose.models.Product || mongoose.model('Product', new mongoos
     maxLength: 64,
     minlength: 3
   },
-  fileLocation: {
-    type: String,
+  modelDetails: {
+    type: Object,
     required: true,
   },
   shortDescription: {
@@ -40,13 +40,14 @@ function getProduct(searchQuery) {
   return Product.findOne(searchQuery);
 }
 
-async function createProduct(title, fileLocation, shortDesc, longDesc, price) {
-  if (typeof img !== 'string' || !isTitle(title) || !isPrice(price) || !isDesc(shortDesc) || !isDesc(longDesc)) return;
+async function createProduct(title, modelDetails, shortDesc, longDesc, price) {
+  if (!isTitle(title) || !isPrice(price) || !isDesc(shortDesc) || !isDesc(longDesc)) return;
+  if (typeof modelDetails?.file !== 'string' || typeof price !== 'number') return;
   if (await getProduct({ title })) return;
 
   return Product.create({ 
     title, 
-    fileLocation, 
+    modelDetails, 
     shortDescription: shortDesc, 
     longDescription: longDesc,
     price 
