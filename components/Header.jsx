@@ -1,24 +1,33 @@
+import Link from 'next/link'
+
+import useCartStore from '@/stores/cartStore';
 import styles from '@/styles/Header.module.css';
 
-function Header() {
-  const links = [
-    { text: 'About', href: '#about' },
-    { text: 'Products', href: '#products' },
-    { text: 'Reviews', href: '#reviews' },
-  ];
+function Header({ links  }) {
+  const { count } = useCartStore();
 
   return (
     <header className={styles.header}>
-      <span className={styles.name}>RepliCar</span>
+      <Link href='/' className={styles.name}>RepliCar</Link>
+
       <nav>
         <ul className={`${styles.navList} simpleList`}>
-          {links.map((link) => (
+          {links?.map((link) => (
             <li key={link.href}>
-              <a href={link.href} className={styles.navLink}>
+              <Link 
+                href={link.href} 
+                className={styles.navLink} 
+                scroll={false}
+              >
                 {link.text}
-              </a>
+              </Link>
             </li>
           ))}
+          <li>
+            <Link href={'/cart'} className={styles.navLink}>
+              Cart ({count})
+            </Link>
+          </li>
         </ul>
       </nav>
     </header>

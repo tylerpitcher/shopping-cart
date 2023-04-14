@@ -34,7 +34,7 @@ function Model({ modelDetails }) {
   );
 }
 
-function ModelCanvas({ modelDetails }) {
+function ModelCanvas({ autoRotate = true, modelDetails }) {
   return (
     <Canvas
       frameloop='demand'
@@ -46,7 +46,7 @@ function ModelCanvas({ modelDetails }) {
           <Model modelDetails={modelDetails}/>
         </Center>
         <OrbitControls
-          autoRotate
+          autoRotate={autoRotate}
           enableZoom={false}
           maxPolarAngle={Math.PI / 2}
           minPolarAngle={Math.PI / 2}
