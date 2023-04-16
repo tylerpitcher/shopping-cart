@@ -1,0 +1,32 @@
+.section {
+  padding: 6rem 10vw 5rem 10vw;
+  overflow: hidden;
+}
+
+.list {
+  list-style: none;
+}
+
+.justifyText {
+  text-align: justify;
+}
+
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  padding: 0.5rem 2rem 0.5rem 2rem;
+  background-color: #3563e9;
+  color: white;
+  border-radius: 2rem;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:disabled {
+  background-color: lightgray;
+  cursor: default;
+}
+
+.removeBtn {
+  background-color: red;
+}

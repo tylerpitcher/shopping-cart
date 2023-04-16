@@ -2,8 +2,9 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 
 import styles from '@/styles/ProductList.module.css';
+import baseStyles from '@/styles/Base.module.css';
 import { slideIn } from '@/utils/motion';
-import ModelCanvas from '../ModelCanvas';
+import ModelCanvas from '@/components/ModelCanvas';
 
 function ProductListItem({ product }) {
   return (
@@ -16,11 +17,11 @@ function ProductListItem({ product }) {
       <div className={styles.infoWrapper}>
         <motion.div 
           variants={slideIn('left', 'tween', 0.2, 1)}
-          className={styles.description}
+          className={`${styles.description} ${baseStyles.justifyText}`}
         >
           <h3>{product.title}</h3>
           <p>
-            {product.shortDescription}
+            {product.description}
           </p>
           <div className={styles.priceWrapper}>
             <span className={styles.price}>{product.price.toPriceString()}</span>

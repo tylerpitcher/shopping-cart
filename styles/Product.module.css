@@ -1,0 +1,31 @@
+.model {
+  width: '100%';
+  height: 350px;
+  border-radius: 1.5vw;
+  background-color: white;
+}
+
+.quantityWrapper {
+  width: fit-content;
+}
+
+.quantityFlex {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.infoWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 2vh;
+  gap: 5vw;
+}
+
+.price {
+  display: block;
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-bottom: 2vh;
+}

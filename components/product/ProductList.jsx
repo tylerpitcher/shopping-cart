@@ -2,12 +2,13 @@ import { motion } from 'framer-motion';
 
 import ProductListItem from '@/components/product/ProductListItem';
 import styles from '@/styles/ProductList.module.css';
+import baseStyles from '@/styles/Base.module.css';
 import MotionSection from '@/components/MotionSection';
 import { textVariant } from '@/utils/motion';
 
 function ProductList({ products }) {
   return (
-    <MotionSection id='products' className={styles.list}>
+    <MotionSection id='products' className={baseStyles.section}>
       <motion.div 
         variants={textVariant()}
         className={styles.sectionHeader}
@@ -15,7 +16,7 @@ function ProductList({ products }) {
         <p>The best of the very best</p>
         <h2>Our Products.</h2>
       </motion.div>
-      <ul className='simpleList'>
+      <ul className={baseStyles.list}>
         {products.map((product) => (
           <ProductListItem 
             key={product.title}
