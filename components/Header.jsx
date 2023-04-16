@@ -2,6 +2,7 @@ import Link from 'next/link'
 
 import useCartStore from '@/stores/cartStore';
 import styles from '@/styles/Header.module.css';
+import baseStyles from '@/styles/Base.module.css';
 
 function Header({ links  }) {
   const { count } = useCartStore();
@@ -11,7 +12,7 @@ function Header({ links  }) {
       <Link href='/' className={styles.name}>RepliCar</Link>
 
       <nav>
-        <ul className={`${styles.navList} simpleList`}>
+        <ul className={`${styles.navList} ${baseStyles.list}`}>
           {links?.map((link) => (
             <li key={link.href}>
               <Link 

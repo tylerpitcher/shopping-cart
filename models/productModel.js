@@ -18,16 +18,16 @@ const Product = mongoose.models.Product || mongoose.model('Product', new mongoos
     type: Object,
     required: true,
   },
-  shortDescription: {
-    type: String,
-    required: true,
-  },
-  longDescription: {
+  description: {
     type: String,
     required: true,
   },
   price: {
     type: Number,
+    required: true,
+  },
+  priceId: {
+    type: String,
     required: true,
   },
 }));
@@ -40,16 +40,15 @@ function getProduct(searchQuery) {
   return Product.findOne(searchQuery);
 }
 
-async function createProduct(title, modelDetails, shortDesc, longDesc, price) {
-  if (!isTitle(title) || !isPrice(price) || !isDesc(shortDesc) || !isDesc(longDesc)) return;
+async function createProduct(title, modelDetails, desc, price) {
+  if (!isTitle(title) || !isPrice(price) || !isDesc(desc)) return;
   if (typeof modelDetails?.file !== 'string' || typeof price !== 'number') return;
   if (await getProduct({ title })) return;
 
   return Product.create({ 
     title, 
     modelDetails, 
-    shortDescription: shortDesc, 
-    longDescription: longDesc,
+    description: desc, 
     price 
   });
 }

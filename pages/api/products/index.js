@@ -6,9 +6,9 @@ async function handleGetRequest(req, res) {
 }
 
 async function handlePostRequest(req, res) {
-  const { title, modelDetails, shortDescription, longDescription, price } = req.body;
+  const { title, modelDetails, description, price } = req.body;
   const product = await createProduct(
-    title, modelDetails, shortDescription, longDescription, price
+    title, modelDetails, description, price
   );
 
   if (!product?.id) return res.status(400).end();
