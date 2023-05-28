@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import ProductListItem from '@/components/product/ProductListItem';
 import styles from '@/styles/ProductList.module.css';
 import baseStyles from '@/styles/Base.module.css';
-import MotionSection from '@/components/MotionSection';
+import MotionSection from '@/components/base/MotionSection';
 import { textVariant } from '@/utils/motion';
 
 function ProductList({ products }) {

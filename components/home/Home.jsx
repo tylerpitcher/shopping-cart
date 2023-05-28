@@ -1,6 +1,6 @@
 import ProductList from '@/components/product/ProductList';
-import Header from '@/components/Header';
-import Hero from '@/components/Hero';
+import Header from '@/components/base/Header';
+import Hero from '@/components/home/Hero';
 
 function Home({ products }) {
   return (

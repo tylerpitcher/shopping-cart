@@ -35,7 +35,7 @@ const useCartStore = create((set) => ({
       items,
     }; 
   }),
-  clear: () => set({ items: {} }),
+  clear: () => set({ items: {}, count: 0 }),
 }));
 
 export default useCartStore;

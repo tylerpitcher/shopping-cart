@@ -1,21 +1,17 @@
 import useCartStore from '@/stores/cartStore';
-import Header from '@/components/Header';
-import ModelCanvas from '@/components/ModelCanvas';
+import Header from '@/components/base/Header';
+import ModelCanvas from '@/components/base/ModelCanvas';
 import styles from '@/styles/Product.module.css';
 import baseStyles from '@/styles/Base.module.css';
-import MotionSection from '@/components/MotionSection';
+import MotionSection from '@/components/base/MotionSection';
 
 function Product({ product }) {
   const { title, price } = product;
   const { items, add, remove } = useCartStore();
 
-  const links = [
-    { text: 'Products', href: '/' },
-  ];
-
   return (
     <div>
-      <Header links={links}/>
+      <Header links={[{ text: 'Products', href: '/' }]}/>
       
       <MotionSection className={baseStyles.section}>
         <h3>{title}</h3>
