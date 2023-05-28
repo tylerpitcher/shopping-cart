@@ -16,7 +16,7 @@ function Hero() {
           </div>
         </div>
         <ModelCanvas
-          autoRotate={true}
+          autoRotate={false}
           modelDetails={{
             file: '/tank/scene.gltf',
             scale: 0.01
