@@ -1,0 +1,13 @@
+.copyright {
+  width: 100%;
+  margin: 5vh 0 10vh 0;
+  display: flex;
+  justify-content: center;
+  color: #8fa6c4;
+}
+
+@media only screen and (max-width: 1000px) {
+  .copyright {
+    font-size: 0.75rem;
+  }
+}

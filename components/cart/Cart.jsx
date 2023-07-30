@@ -35,7 +35,6 @@ function Cart() {
         {
           Object.keys(items).length ?
             <div className={`${baseStyles.card} ${styles.cartCard}`}>
-              <h3>Cart</h3>
               <br/>
 
               <ul className={baseStyles.list}>

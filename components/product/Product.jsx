@@ -4,6 +4,7 @@ import ModelCanvas from '@/components/base/ModelCanvas';
 import styles from '@/styles/Product.module.css';
 import baseStyles from '@/styles/Base.module.css';
 import MotionSection from '@/components/base/MotionSection';
+import Footer from '@/components/base/Footer';
 
 function Product({ product }) {
   const { title, price } = product;
@@ -14,7 +15,7 @@ function Product({ product }) {
       <Header links={[{ text: 'Products', href: '/' }]}/>
       
       <MotionSection className={baseStyles.section}>
-        <h3>{title}</h3>
+        <h3 className={styles.title}>{title}</h3>
         <span className={styles.price}>{price.toPriceString()}</span>
 
         <div className={styles.model}>
@@ -49,6 +50,7 @@ function Product({ product }) {
           </div>
         </div>
       </MotionSection>
+      <Footer/>
     </div>
   );
 }

@@ -36,3 +36,9 @@
 .removeBtn {
   background-color: red;
 }
+
+@media only screen and (max-width: 1000px) {
+  .section {
+    padding: 2rem 10vw 1rem 10vw;
+  }
+}
