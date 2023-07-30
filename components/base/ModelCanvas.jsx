@@ -8,7 +8,7 @@ function LoaderText() {
   const { progress } = useProgress();
 
   return (
-    <Html>
+    <Html center>
       <span>{progress.toFixed(2)}%</span>
     </Html>
   );
