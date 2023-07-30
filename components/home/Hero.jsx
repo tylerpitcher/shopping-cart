@@ -1,4 +1,4 @@
-import ModelCanvas from '@/components/ModelCanvas';
+import ModelCanvas from '@/components/base/ModelCanvas';
 import styles from '@/styles/Hero.module.css';
 
 function Hero() {

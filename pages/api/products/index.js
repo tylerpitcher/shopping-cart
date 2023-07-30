@@ -2,7 +2,7 @@ import { getProducts, createProduct } from '@/models/productModel';
 
 async function handleGetRequest(req, res) {
   const products = await getProducts();
-  return res.status(200).json(products);
+  return res.json(products);
 }
 
 async function handlePostRequest(req, res) {
@@ -26,7 +26,7 @@ async function handler(req, res) {
     case 'POST':
       return await handlePostRequest(req, res);
     default:
-      return res.status(405);
+      return res.status(405).end();
   }
 }
 

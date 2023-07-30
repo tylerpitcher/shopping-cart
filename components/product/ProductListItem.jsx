@@ -4,7 +4,7 @@ import Link from 'next/link';
 import styles from '@/styles/ProductList.module.css';
 import baseStyles from '@/styles/Base.module.css';
 import { slideIn } from '@/utils/motion';
-import ModelCanvas from '@/components/ModelCanvas';
+import ModelCanvas from '@/components/base/ModelCanvas';
 
 function ProductListItem({ product }) {
   return (
@@ -25,7 +25,7 @@ function ProductListItem({ product }) {
           </p>
           <div className={styles.priceWrapper}>
             <span className={styles.price}>{product.price.toPriceString()}</span>
-            <Link className={styles.buyLink} href={`/${product._id}`}>BUY</Link>
+            <Link className={styles.buyLink} href={`/${product._id}`}>Buy</Link>
           </div>
         </motion.div>
 

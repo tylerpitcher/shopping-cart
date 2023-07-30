@@ -30,14 +30,24 @@ const Product = mongoose.models.Product || mongoose.model('Product', new mongoos
     type: String,
     required: true,
   },
+}, {
+  timestamps: true,
 }));
 
 function getProducts() {
-  return Product.find({});
+  return Product.find({}, {
+    __v: 0,
+    createdAt: 0,
+    updatedAt: 0,
+  });
 }
 
 function getProduct(searchQuery) {
-  return Product.findOne(searchQuery);
+  return Product.findOne(searchQuery, { 
+    __v: 0,
+    createdAt: 0,
+    updatedAt: 0,
+  });
 }
 
 async function createProduct(title, modelDetails, desc, price) {
@@ -49,7 +59,8 @@ async function createProduct(title, modelDetails, desc, price) {
     title, 
     modelDetails, 
     description: desc, 
-    price 
+    price,
+    priceId: "123"
   });
 }
 

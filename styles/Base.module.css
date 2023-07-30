@@ -3,6 +3,12 @@
   overflow: hidden;
 }
 
+.card {
+  background-color: white;
+  border-radius: 1.5vw;
+  padding: 3vw;
+}
+
 .list {
   list-style: none;
 }

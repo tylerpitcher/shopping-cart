@@ -4,7 +4,7 @@ import useCartStore from '@/stores/cartStore';
 import styles from '@/styles/Header.module.css';
 import baseStyles from '@/styles/Base.module.css';
 
-function Header({ links  }) {
+function Header({ links }) {
   const { count } = useCartStore();
 
   return (
