@@ -5,7 +5,7 @@ function CartItem({ id, item }) {
   const { add, remove } = useCartStore();
 
   return (
-    <li>
+    <li className={styles.listMargin}>
       <h4>{item.title}</h4>
       <div className={styles.flexBetween}>
         <span>{item.price.toPriceString()}</span>

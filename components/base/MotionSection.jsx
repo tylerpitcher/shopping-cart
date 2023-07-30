@@ -5,7 +5,7 @@ function MotionSection(props) {
     <motion.section
       initial='hidden'
       whileInView='show'
-      viewport={{ once: true, amount: 0.25 }}
+      viewport={{ once: true, amount: 0.2 }}
       {...props}
     />
   );

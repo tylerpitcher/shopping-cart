@@ -23,12 +23,12 @@ function FailedCheckout({ products }) {
   useEffect(() => {
     clear();
     products.forEach((product) => add(product));
-  }, [products]);
+  }, [products, clear, add]);
 
   return (
     <div className={`${baseStyles.card} ${styles.cartCard}`}>
       <h3>We&#39;re sorry&#44;</h3>
-      <p>the checkout failed</p>
+      <p>the checkout failed.</p>
       <br/>
 
       <ul className={baseStyles.list}>
@@ -52,12 +52,12 @@ function SuccessfulCheckout({ products }) {
   return (
     <div className={`${baseStyles.card} ${styles.cartCard}`}>
       <h3>Congratulations&#44;</h3>
-      <p>we know you&#39;ll love your purchase</p>
+      <p>we know you&#39;ll love your purchase.</p>
       <br/>
 
       <ul className={baseStyles.list}>
         {products.map((product) => (
-          <li>
+          <li key={product._id}>
             {product.title} &times; {product.quantity}
           </li>
         ))}

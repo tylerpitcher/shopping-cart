@@ -2,6 +2,8 @@ import { OrbitControls, Preload, Html, Center, useProgress, useGLTF } from '@rea
 import { Canvas } from '@react-three/fiber';
 import { Suspense } from 'react';
 
+import useScreenStore from '@/stores/screenStore';
+
 function LoaderText() {
   const { progress } = useProgress();
 
@@ -14,6 +16,7 @@ function LoaderText() {
 
 function Model({ modelDetails }) {
   const model = useGLTF(modelDetails.file);
+  const { mobile } = useScreenStore();
 
   return (
     <mesh>
@@ -26,9 +29,9 @@ function Model({ modelDetails }) {
       <ambientLight intensity={1}/>
       <primitive
         object={model.scene.clone()}
-        scale={modelDetails.scale}
+        scale={mobile ? modelDetails.scale * 0.8 : modelDetails.scale}
         position-y={0}
-        rotation-y={0}
+        rotation-y={modelDetails.rotation || 0}
       />
     </mesh>
   );
@@ -47,9 +50,7 @@ function ModelCanvas({ autoRotate = true, modelDetails }) {
         </Center>
         <OrbitControls
           autoRotate={autoRotate}
-          enableZoom={false}
-          maxPolarAngle={Math.PI / 2}
-          minPolarAngle={Math.PI / 2}
+          enablePan={false}
         />
       </Suspense>
       <Preload all/>

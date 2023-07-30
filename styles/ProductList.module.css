@@ -45,3 +45,30 @@
   color: white;
   border-radius: 2rem;
 }
+
+@media only screen and (max-width: 1000px) {
+  .sectionHeader {
+    margin-bottom: -2rem;
+  }
+
+  .item {
+    padding-top: 10vh;
+  }
+
+  .infoWrapper {
+    flex-direction: column-reverse;
+  }
+
+  .model {
+    width: 100%;
+  }
+
+  .description {
+    min-width: 100%;
+    width: 100%;
+  }
+
+  .priceWrapper {
+    margin-top: 3rem;
+  }
+}

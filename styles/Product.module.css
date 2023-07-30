@@ -12,6 +12,7 @@
 .quantityFlex {
   display: flex;
   justify-content: space-between;
+  margin-top: 0.5rem;
   gap: 2rem;
 }
 
@@ -28,4 +29,22 @@
   font-weight: 700;
   font-size: 1.2rem;
   margin-bottom: 2vh;
+}
+
+@media only screen and (max-width: 1000px) {
+  .title {
+    margin-top: -2rem;
+  }
+
+  .infoWrapper {
+    flex-direction: column;
+  }
+
+  .quantityFlex {
+    margin-top: 0.5rem;
+  }
+
+  .quantityWrapper {
+    width: 100%;
+  }
 }

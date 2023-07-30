@@ -55,3 +55,13 @@
   font-size: 1.5rem;
   padding-left: 2rem;
 }
+
+@media only screen and (max-width: 1000px) {
+  .hero, .heroCard, .heroCardOverlay {
+    height: 30vh;
+  }
+
+  .text {
+    display: none;
+  }
+}
