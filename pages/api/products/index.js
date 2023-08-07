@@ -7,6 +7,10 @@ async function handleGetRequest(req, res) {
 
 async function handlePostRequest(req, res) {
   const { title, modelDetails, description, price } = req.body;
+  const token = req.headers.authorization;
+
+  if (token?.slice(7) != process.env.TOKEN) return res.status(401).json();
+  
   const product = await createProduct(
     title, modelDetails, description, price
   );
