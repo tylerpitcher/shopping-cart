@@ -1,7 +1,7 @@
 # Shopping Cart
 An online store built with NextJs &amp; connected to Stripe.
 
-# Live Version
+## Live Version
 https://tylerpitcher.site/replicar
 
 ## Environment Variables
