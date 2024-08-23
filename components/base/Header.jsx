@@ -11,7 +11,7 @@ function Header({ links }) {
 
   return (
     <header className={styles.header}>
-      <Link href='/' className={styles.name}>RepliCar</Link>
+      <Link href='/' className={styles.name}>Replicar</Link>
 
       <nav>
         <ul className={`${styles.navList} ${baseStyles.list}`}>

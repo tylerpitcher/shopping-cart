@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router';
+import getConfig from 'next/config';
 import { useEffect } from 'react';
 import axios from 'axios';
 
@@ -10,13 +11,14 @@ import useCartStore from '@/stores/cartStore';
 import CartItem from '@/components/cart/CartItem';
 
 function FailedCheckout({ products }) {
+  const { publicRuntimeConfig: { basePath } } = getConfig();
   const { items, count, add, clear } = useCartStore();
   const router = useRouter();
 
   const checkout = async () => {
     if (!count) return;
 
-    const { data } = await axios.post('/api/checkout', { items });
+    const { data } = await axios.post(`${basePath}/api/checkout`, { items });
     if (data.url) router.push(data.url);
   }
 

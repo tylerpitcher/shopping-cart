@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router';
+import getConfig from 'next/config';
 import axios from 'axios';
 
 import Header from '@/components/base/Header';
@@ -20,11 +21,12 @@ function EmptyMessage() {
 }
 
 function Cart() {
+  const { publicRuntimeConfig: { basePath } } = getConfig();
   const { items } = useCartStore();
   const router = useRouter();
 
   const checkout = async () => {
-    const { data } = await axios.post('/api/checkout', { items });
+    const { data } = await axios.post(`${basePath}/api/checkout`, { items });
     if (data.url) router.push(data.url);
   };
 

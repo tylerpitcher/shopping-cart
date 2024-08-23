@@ -12,7 +12,7 @@ function Footer() {
       variants={textVariant()}
       className={styles.copyright}
     >
-      &copy; 2023 RepliCar
+      &copy; 2023 Replicar
     </motion.footer>
   );
 }

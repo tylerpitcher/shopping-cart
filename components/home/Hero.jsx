@@ -1,8 +1,11 @@
+import getConfig from 'next/config';
+
 import ModelCanvas from '@/components/base/ModelCanvas';
 import useScreenStore from '@/stores/screenStore';
 import styles from '@/styles/Hero.module.css';
 
 function Hero() {
+  const { publicRuntimeConfig: { basePath } } = getConfig();
   const { mobile } = useScreenStore();
 
   return (
@@ -21,7 +24,7 @@ function Hero() {
         <ModelCanvas
           autoRotate={true}
           modelDetails={{
-            file: '/tank/scene.gltf',
+            file: `tank/scene.gltf`,
             scale: 0.008,
             rotation: 270
           }}

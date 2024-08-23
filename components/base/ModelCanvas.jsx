@@ -1,5 +1,6 @@
 import { OrbitControls, Preload, Html, Center, useProgress, useGLTF } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
+import getConfig from 'next/config';
 import { Suspense } from 'react';
 
 import useScreenStore from '@/stores/screenStore';
@@ -15,7 +16,8 @@ function LoaderText() {
 }
 
 function Model({ modelDetails }) {
-  const model = useGLTF(modelDetails.file);
+  const { publicRuntimeConfig: { basePath } } = getConfig();
+  const model = useGLTF(`${basePath}/${modelDetails.file}`);
   const { mobile } = useScreenStore();
 
   return (

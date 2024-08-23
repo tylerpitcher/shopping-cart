@@ -15,9 +15,9 @@ const useCartStore = create((set) => ({
     return { 
       items: { 
         ...state.items, 
-        [id]: { title: item.title, price: item.price, quantity: 1 } 
+        [id]: { title: item.title, price: item.price, quantity: item.quantity || 1 } 
       },
-      count: state.count + 1
+      count: state.count + (item.quantity || 1)
     };
   }),
   remove: (item) => set((state) => {
