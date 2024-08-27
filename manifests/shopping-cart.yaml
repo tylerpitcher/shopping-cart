@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shopping-cart
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: shopping-cart
+  template:
+    metadata:
+      labels:
+        app: shopping-cart
+    spec:
+      containers:
+      - name: shopping-cart
+        image: tylerpitcher/shopping-cart:latest
+        ports:
+        - containerPort: 3000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: shopping-cart-service
+spec:
+  selector:
+    app: shopping-cart
+  ports:
+    - protocol: TCP
+      port: 3000
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: shopping-cart-ingress
+spec:
+  entryPoints:
+    - websecure
+  routes:
+  - match: Host(`tylerpitcher.com`, `www.tylerpitcher.com`) && PathPrefix(`/replicar`)
+    kind: Rule
+    services:
+    - name: shopping-cart-service
+      port: 3000
+  tls:
+    secretName: tls-secret
