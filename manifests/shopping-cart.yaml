@@ -14,9 +14,35 @@ spec:
     spec:
       containers:
       - name: shopping-cart
-        image: tylerpitcher/shopping-cart:latest
+        image: tylerpitcher/shopping-cart:a2be9fe
         ports:
         - containerPort: 3000
+        env:
+        - name: HOST
+          valueFrom:
+            secretKeyRef:
+              name: shopping-cart-secret
+              key: HOST
+        - name: TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: shopping-cart-secret
+              key: TOKEN
+        - name: MONGO_URI
+          valueFrom:
+            secretKeyRef:
+              name: shopping-cart-secret
+              key: MONGO_URI
+        - name: STRIPE_KEY
+          valueFrom:
+            secretKeyRef:
+              name: shopping-cart-secret
+              key: STRIPE_KEY
+        - name: BASE_PATH
+          valueFrom:
+            secretKeyRef:
+              name: shopping-cart-secret
+              key: BASE_PATH
 ---
 apiVersion: v1
 kind: Service
