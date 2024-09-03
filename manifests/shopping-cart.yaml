@@ -19,10 +19,9 @@ spec:
         - containerPort: 3000
         env:
         - name: HOST
-          valueFrom:
-            secretKeyRef:
-              name: shopping-cart-secret
-              key: HOST
+          value: "https://www.tylerpitcher.com/replicar"
+        - name: BASE_PATH
+          value: "/replicar"
         - name: TOKEN
           valueFrom:
             secretKeyRef:
@@ -38,11 +37,6 @@ spec:
             secretKeyRef:
               name: shopping-cart-secret
               key: STRIPE_KEY
-        - name: BASE_PATH
-          valueFrom:
-            secretKeyRef:
-              name: shopping-cart-secret
-              key: BASE_PATH
 ---
 apiVersion: v1
 kind: Service
