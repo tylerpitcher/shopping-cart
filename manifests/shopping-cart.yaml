@@ -52,7 +52,7 @@ spec:
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
-  name: shopping-cart-ingress
+  name: shopping-cart-ingress-https
 spec:
   entryPoints:
     - websecure
@@ -64,3 +64,19 @@ spec:
       port: 3000
   tls:
     secretName: tls-secret
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: shopping-cart-ingress-http
+spec:
+  entryPoints:
+    - web
+  routes:
+  - match: Host(`tylerpitcher.com`, `www.tylerpitcher.com`) && PathPrefix(`/replicar`)
+    kind: Rule
+    services:
+    - name: shopping-cart-service
+      port: 80
+    middlewares:
+    - name: https-redirect
